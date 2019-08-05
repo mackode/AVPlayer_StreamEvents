@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a0G-7Y-p5M">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+    </dependencies>
+    <scenes>
+        <!--Stream Events-->
+        <scene sceneID="Bjk-QH-4kw">
+            <objects>
+                <avPlayerViewController title="Stream Events" videoGravity="AVLayerVideoGravityResizeAspect" id="a0G-7Y-p5M" customClass="PlayerViewController" customModule="AVPlayer_StreamEvents" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5S-u8-cFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="48"/>
+        </scene>
+    </scenes>
+</document>

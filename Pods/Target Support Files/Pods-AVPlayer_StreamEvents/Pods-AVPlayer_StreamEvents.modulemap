@@ -1,0 +1,6 @@
+framework module Pods_AVPlayer_StreamEvents {
+  umbrella header "Pods-AVPlayer_StreamEvents-umbrella.h"
+
+  export *
+  module * { export * }
+}
