@@ -42,8 +42,7 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
         server.start()
 
         // setup AVPlayer
-        // NOTE: update IP address
-        let proxiedVideoURLString = "http://192.168.242.191/level_1.m3u8"
+        let proxiedVideoURLString = "\(server.serverURL?.absoluteString ?? "")level_1.m3u8"
         let videoURL = URL(string: proxiedVideoURLString)
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
         let asset = AVURLAsset(url: videoURL!)
@@ -69,7 +68,7 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
         var lines = modified!.split { $0.isNewline }
 
         let date = Date(timeIntervalSinceReferenceDate: Date.timeIntervalSinceReferenceDate + 5.0)
-        let dataRangeLine = Substring(#"#EXT-X-DATERANGE:ID="\#(self.identifier)",START-DATE="\#(self.formatter.string(from: date))",PLANNED-DURATION=24,SCTE35-OUT=0xFC302100000000000000FFF01005000000BB7FEF7F7E0020F580000000000000532C8ACE"#)
+        let dataRangeLine = Substring(#"#EXT-X-DATERANGE:ID="\#(self.identifier)",START-DATE="\#(self.formatter.string(from: date))",X-AD-ID="3671232",PLANNED-DURATION=24,SCTE35-OUT=0xFC302100000000000000FFF01005000000BB7FEF7F7E0020F580000000000000532C8ACE"#)
 
         lines.insert(dataRangeLine, at: 6)
         modified = lines.joined(separator: "\n")
