@@ -67,8 +67,10 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
         var modified = String(data: manifest, encoding: .utf8)
         var lines = modified!.split { $0.isNewline }
 
-        let date = Date(timeIntervalSinceReferenceDate: Date.timeIntervalSinceReferenceDate + 5.0)
+        let date = Date(timeIntervalSinceReferenceDate: Date.timeIntervalSinceReferenceDate + 50.0)
         let dataRangeLine = Substring(#"#EXT-X-DATERANGE:ID="\#(self.identifier)",START-DATE="\#(self.formatter.string(from: date))",X-AD-ID="3671232",PLANNED-DURATION=24,SCTE35-OUT=0xFC302100000000000000FFF01005000000BB7FEF7F7E0020F580000000000000532C8ACE"#)
+        print("--- insert date", self.formatter.string(from: Date()))
+        print("--- insert start date", self.formatter.string(from: date))
 
         lines.insert(dataRangeLine, at: 6)
         modified = lines.joined(separator: "\n")
@@ -80,12 +82,12 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
 
         for metaGroup in metadataGroups {
             print("--- group ---")
-            print("now date", self.formatter.string(from: Date()))
-            print("start date", metaGroup.startDate)
+            print("--- now date", self.formatter.string(from: Date()))
+            print("--- start date", metaGroup.startDate)
 
             for metaItem in metaGroup.items {
                 print("--- item ---")
-                print(metaItem)
+                print("---", metaItem)
                 print("--- ---- ---")
             }
         }
